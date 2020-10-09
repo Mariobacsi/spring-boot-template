@@ -21,7 +21,7 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel target="1.8">
-      <module name="SEW" target="1.8" />
+      <module name="SEW" target="11" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
