@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/spring-boot-template.iml" filepath="$PROJECT_DIR$/spring-boot-template.iml" />
+      <module fileurl="file://$PROJECT_DIR$/SEW.iml" filepath="$PROJECT_DIR$/SEW.iml" />
     </modules>
   </component>
 </project>
