@@ -13,8 +13,7 @@ app.controller("ApiCallerController", function ($log, $http, RestService) {
 
     this.$onInit = function () {
         $log.debug("ApiCallerController().onInit()");
-        /*this.apiCall("http://localhost:8080/api/songs");*/
-        RestService.
+        this.apiCall("http://localhost:8080/api/songs");
     }
 
     this.apiCall = function (url) {
@@ -30,7 +29,7 @@ app.controller("ApiCallerController", function ($log, $http, RestService) {
                 $log.debug(response.data)
                 this.page = response.data.page
                 this.links = response.data._links
-                this.songs = response.data._embedded.songs
+                this.songs = response.data.songs
             })
     }
 });

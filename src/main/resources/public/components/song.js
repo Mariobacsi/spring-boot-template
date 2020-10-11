@@ -3,7 +3,6 @@
 app.component("song", {
     templateUrl: "components/song.html",
     controller: "SongController",
-    transclude: true,
     bindings: {
         song: '<'
     }

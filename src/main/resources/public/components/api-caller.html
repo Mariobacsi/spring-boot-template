@@ -32,15 +32,18 @@
                 <md-button class="md-raised">Genre</md-button>
             </div>
 
-            <div flex="10">
-                <!--<md-button class="md-raised">Controlls</md-button>-->
+            <div flex="10"
+                 layout="row"
+                 layout-align="center center">
+                <md-button class="md-fab md-mini md-raised md-primary">
+                    <md-icon class="material-icons">add</md-icon>
+                </md-button>
             </div>
+        </div>
+        <div style="height: 1px; background-color: #cccccc">
         </div>
         <song ng-repeat="songData in $ctrl.songs"
               song="songData">
-            <div ng-if="songData != songs.$last"
-                 style="height: 1px; background-color: #cccccc">
-            </div>
         </song>
     </md-card>
 </div>
