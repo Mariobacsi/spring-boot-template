@@ -1,5 +1,5 @@
 <div>
-    <md-card id="controlls" layout="row" layout-align="center" class="md-padding">
+    <div id="controlls" layout="row" layout-align="center">
         <md-button ng-disabled="!$ctrl.links.first || !$ctrl.links.prev"
                    ng-click="$ctrl.apiCall($ctrl.links.first.href)"
                    class="md-raised">|<
@@ -19,8 +19,8 @@
                    ng-click="$ctrl.apiCall($ctrl.links.last.href)"
                    class="md-raised">>|
         </md-button>
-    </md-card>
-    <md-card class="md-padding">
+    </div>
+    <div class="md-padding">
         <div layout="row">
             <div flex>
                 <md-button class="md-raised">Title</md-button>
@@ -31,19 +31,14 @@
             <div flex="30">
                 <md-button class="md-raised">Genre</md-button>
             </div>
-
-            <div flex="10"
-                 layout="row"
-                 layout-align="center center">
+            <div flex="10" layout="row" layout-align="center">
                 <md-button class="md-fab md-mini md-raised md-primary">
                     <md-icon class="material-icons">add</md-icon>
                 </md-button>
             </div>
         </div>
-        <div style="height: 1px; background-color: #cccccc">
-        </div>
         <song ng-repeat="songData in $ctrl.songs"
-              song="songData">
-        </song>
-    </md-card>
+              song="songData"
+              length="$ctrl.songs.length"/>
+    </div>
 </div>

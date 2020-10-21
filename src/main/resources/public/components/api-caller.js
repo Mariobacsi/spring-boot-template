@@ -7,7 +7,7 @@ app.component("apiCaller", {
 });
 
 
-app.controller("ApiCallerController", function ($log, $http, RestService) {
+app.controller("ApiCallerController", function ($log, $http) {
 
     $log.debug("ApiCallerController()");
 
@@ -29,7 +29,7 @@ app.controller("ApiCallerController", function ($log, $http, RestService) {
                 $log.debug(response.data)
                 this.page = response.data.page
                 this.links = response.data._links
-                this.songs = response.data.songs
+                this.songs = response.data._embedded.songs
             })
     }
 });

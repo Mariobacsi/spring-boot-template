@@ -1,22 +1,33 @@
 package server.models;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+import javax.validation.ValidationException;
+import javax.validation.constraints.NotBlank;
 
 @Entity
 public class Song {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(updatable = false)
     private long id;
 
+    @NotBlank(message = "Title darf nicht leer sein!")
     private String title;
 
+    @NotBlank(message = "Artist muss gesetzt sein!")
     private String artist;
 
+    @NotBlank(message = "Genre darf nicht leer sein!")
     private String genre;
+
+    @PreUpdate
+    @PrePersist
+    private void validieren(){
+        if (artist.equals("haha")){
+            throw new ValidationException("Artist ist gebannt.");
+        }
+    }
 
     public void setId(long id) {
         this.id = id;
