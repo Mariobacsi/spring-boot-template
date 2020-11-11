@@ -7,6 +7,9 @@ import javax.validation.constraints.NotBlank;
 @Entity
 public class Song {
 
+    @Version
+    private long version;
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(updatable = false)
@@ -27,6 +30,10 @@ public class Song {
         if (artist.equals("haha")){
             throw new ValidationException("Artist ist gebannt.");
         }
+    }
+
+    public long getETag(){
+        return version;
     }
 
     public void setId(long id) {
