@@ -1,0 +1,64 @@
+<div layout="column">
+    <md-toolbar>
+        <div class="md-toolbar-tools">
+            <div>Song bearbeiten</div>
+
+            <div flex></div>
+
+            <!-- Zurück-Button -->
+            <md-button class="md-icon-button"
+                       ui-sref="liste">
+                <md-icon md-font-icon="material-icons">arrow_back</md-icon>
+            </md-button>
+
+            <!-- Speichern-Button -->
+            <md-button class="md-icon-button"
+                       ng-disabled="$ctrl.formular.$invalid"
+                       ng-click="$ctrl.speichern()">
+                <md-icon md-font-icon="material-icons">check</md-icon>
+            </md-button>
+        </div>
+    </md-toolbar>
+
+    <form name="$ctrl.formular" layout="column" layout-padding>
+        <md-input-container>
+            <label>Titel</label>
+            <input type="text"
+                   name="title"
+                   ng-model="$ctrl.song.title"
+                   required>
+            <div ng-messages="$ctrl.formular.title.$error">
+                <div ng-message="required">
+                    Ein Songtitel muss angegeben werden.
+                </div>
+            </div>
+        </md-input-container>
+
+        <md-input-container>
+            <label>Interpret</label>
+            <input type="text"
+                   name="artist"
+                   ng-model="$ctrl.song.artist"
+                   required>
+            <div ng-messages="$ctrl.formular.artist.$error">
+                <div ng-message="required">
+                    Die Interpretin muss angegeben werden.
+                </div>
+            </div>
+        </md-input-container>
+
+        <md-input-container>
+            <label>Genres</label>
+            <input type="text"
+                   name="genres"
+                   ng-model="$ctrl.song.genres"
+                   required>
+            <div ng-messages="$ctrl.formular.genres.$error">
+                <div ng-message="required">
+                    Ein Genre muss angegeben werden.
+                </div>
+            </div>
+        </md-input-container>
+
+    </form>
+</div>

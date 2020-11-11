@@ -2,5 +2,5 @@
 /db
 /target
 workspace.xml
+.idea/*
 !.idea/fileTemplates
-.idea/

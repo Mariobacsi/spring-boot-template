@@ -1,0 +1,47 @@
+<md-toolbar>
+    <div class="md-toolbar-tools">
+        <div>Yousooooong</div>
+
+        <div flex></div>
+
+        <md-button class="md-icon-button"
+                   ng-click="$ctrl.laden($ctrl.links.first.href)"
+                   ng-disabled="!$ctrl.links.prev.href">
+            <md-icon md-font-icon="material-icons">first_page</md-icon>
+        </md-button>
+
+        <md-button class="md-icon-button"
+                   ng-click="$ctrl.laden($ctrl.links.prev.href)"
+                   ng-disabled="!$ctrl.links.prev.href">
+            <md-icon md-font-icon="material-icons">chevron_left</md-icon>
+        </md-button>
+
+        <div>
+            Seite {{ $ctrl.page.number + 1 }}
+            von
+            {{ $ctrl.page.totalPages }}
+        </div>
+
+        <md-button class="md-icon-button"
+                   ng-click="$ctrl.laden($ctrl.links.next.href)"
+                   ng-disabled="!$ctrl.links.next.href">
+            <md-icon md-font-icon="material-icons">chevron_right</md-icon>
+        </md-button>
+
+        <md-button class="md-icon-button"
+                   ng-click="$ctrl.laden($ctrl.links.last.href)"
+                   ng-disabled="!$ctrl.links.next.href">
+            <md-icon md-font-icon="material-icons">last_page</md-icon>
+        </md-button>
+
+    </div>
+</md-toolbar>
+
+<md-content layout-padding>
+    <div layout="column">
+        <song ng-repeat="song in $ctrl.songs"
+              song="song"
+              geloescht="$ctrl.laden($ctrl.links.first.href)">
+        </song>
+    </div>
+</md-content>

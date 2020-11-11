@@ -45,13 +45,14 @@
     <script src="components/sort-button.js"></script>
     <script src="directives/equals.js"></script>
 
-    <script src="components/api-caller.js"></script>
+    <script src="components/liste.js"></script>
     <script src="components/song.js"></script>
+    <script src="services/api.js"></script>
+    <script src="models/song.js"></script>
+    <script src="components/song-editor.js"></script>
   </head>
 
   <body layout="column" ng-cloak>
-    <md-content class="md-padding">
-      <api-caller/>
-    </md-content>
+    <ui-view></ui-view>
   </body>
 </html>

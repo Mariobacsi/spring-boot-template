@@ -1,70 +1,77 @@
 package server.models;
 
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.hibernate.tool.hbm2ddl.UniqueConstraintSchemaUpdateStrategy;
+
 import javax.persistence.*;
 import javax.validation.ValidationException;
 import javax.validation.constraints.NotBlank;
 
 @Entity
+@Table(uniqueConstraints = {
+        @UniqueConstraint(columnNames = {"title","artist"})
+})
 public class Song {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
     @Version
     private long version;
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(updatable = false)
-    private long id;
-
-    @NotBlank(message = "Title darf nicht leer sein!")
+    @NotBlank
     private String title;
 
-    @NotBlank(message = "Artist muss gesetzt sein!")
+    @NotBlank(message = "Artist muss gesetzt sein.")
     private String artist;
 
-    @NotBlank(message = "Genre darf nicht leer sein!")
-    private String genre;
+    @NotBlank
+    private String genres;
 
-    @PreUpdate
+    @Transient
+    private String voting;
+
     @PrePersist
-    private void validieren(){
-        if (artist.equals("haha")){
-            throw new ValidationException("Artist ist gebannt.");
+    @PreUpdate
+    private void validieren() {
+        if("haha".equals(artist)) {
+                throw new ValidationException("Artist darf nicht schlecht benannt sein.");
         }
     }
 
-    public long getETag(){
-        return version;
-    }
+    public long getETag() { return version; }
 
-    public void setId(long id) {
-        this.id = id;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
-    }
-
-    public void setArtist(String artist) {
-        this.artist = artist;
-    }
-
-    public void setGenre(String category) {
-        this.genre = category;
-    }
-
-    public long getId() {
+    public Long getId() {
         return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public String getTitle() {
         return title;
     }
 
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
     public String getArtist() {
         return artist;
     }
 
-    public String getGenre() {
-        return genre;
+    public void setArtist(String artist) {
+        this.artist = artist;
+    }
+
+    public String getGenres() {
+        return genres;
+    }
+
+    public void setGenre(String genres) {
+        this.genres = genres;
     }
 }

@@ -7,5 +7,4 @@ import server.models.Song;
 @RepositoryRestResource
 public interface SongRepository
         extends PagingAndSortingRepository<Song, Long> {
-    
 }
